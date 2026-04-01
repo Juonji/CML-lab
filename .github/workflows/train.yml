@@ -34,4 +34,6 @@ jobs:
           cat metrics.txt >> report.md
           echo "### Confusion Matrix" >> report.md
           echo "![](plot.png)" >> report.md
+          echo "### Feature importance" >> report.md
+          echo "![](plot2.png)" >> report.md
           cml comment create report.md

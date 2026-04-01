@@ -1,0 +1,37 @@
+name: Train workflow
+on: [push]
+jobs:
+  train:
+    name: Train job
+    runs-on: ubuntu-latest
+    container: docker://iterativeai/cml:0-dvc2-base1
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.12
+
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+
+      - name: Train model
+        run: |
+          python train.py > metrics.txt
+
+
+      - name: Create CML report
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "## Model Report" >> report.md
+          cat metrics.txt >> report.md
+          echo "### Confusion Matrix" >> report.md
+          echo "![](plot.png)" >> report.md
+          cml comment create report.md

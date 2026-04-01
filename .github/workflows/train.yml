@@ -1,5 +1,11 @@
 name: Train workflow
 on: [push]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write  
+
 jobs:
   train:
     name: Train job

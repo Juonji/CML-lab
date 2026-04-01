@@ -3,7 +3,7 @@ on: [push]
 jobs:
   train:
     name: Train job
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     container: docker://iterativeai/cml:0-dvc2-base1
     steps:
       - name: Checkout repo
@@ -13,7 +13,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.12
+          python-version: 3.10
 
 
       - name: Install dependencies

@@ -31,7 +31,7 @@ df['age_bin'] = pd.cut(
 )
 
 
-X = df.drop('Survived', 'Sex', axis=1)
+X = df.drop('Survived', axis=1)
 y = df['Survived']
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=67

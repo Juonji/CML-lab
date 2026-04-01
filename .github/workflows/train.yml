@@ -3,7 +3,7 @@ on: [push]
 jobs:
   train:
     name: Train job
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     container: docker://iterativeai/cml:0-dvc2-base1
     steps:
       - name: Checkout repo

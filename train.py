@@ -6,7 +6,7 @@ from xgboost import XGBClassifier
 
 
 df = pd.read_csv("titanic.csv")
-df = df[['Survived', 'Pclass', 'Sex', 'Age', 'Fare']]
+df = df[['Survived', 'Pclass', 'Sex', 'Age', 'Fare', 'SibSP', 'Parch']]
 df['Sex'] = df['Sex'].map({'male': 0, 'female': 1})
 df['Age'] = df['Age'].fillna(df['Age'].median())
 

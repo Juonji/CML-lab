@@ -74,6 +74,6 @@ disp.plot()
 plt.title("Confusion Matrix")
 plt.savefig("plot.png")
 
-plot_importance(model)
+plot_importance(best_model)
 plt.title("Feature importanace")
 plt.savefig("plot2.png")

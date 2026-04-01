@@ -2,7 +2,7 @@ name: Train workflow
 on: [push]
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
   issues: write  
 
@@ -13,13 +13,6 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: 3.12
-
 
       - name: Install dependencies
         run: |
